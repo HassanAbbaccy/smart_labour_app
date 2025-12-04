@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login_signup/screens/signin_screen.dart';
-import 'package:login_signup/screens/signup_screen.dart';
-import 'package:login_signup/theme/theme.dart';
-import 'package:login_signup/widgets/custom_scaffold.dart';
-import 'package:login_signup/widgets/welcome_button.dart';
+import '../screens/signin_screen.dart';
+import '../screens/signup_screen.dart';
+import '../theme/theme.dart';
+import '../widgets/custom_scaffold.dart';
+import '../widgets/welcome_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -23,14 +23,45 @@ class WelcomeScreen extends StatelessWidget {
                 child: Center(
                   child: RichText(
                     textAlign: TextAlign.center,
-                    text: const TextSpan(
+                    text: TextSpan(
                       children: [
-                        TextSpan(
-                            text: 'Welcome Back!\n',
+                        const TextSpan(
+                            text: 'Smart\n',
                             style: TextStyle(
                               fontSize: 45.0,
                               fontWeight: FontWeight.w600,
                             )),
+                        TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: ShaderMask(
+                                shaderCallback: (bounds) => const LinearGradient(
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Colors.purple,
+                                    Colors.pinkAccent,
+                                    Colors.greenAccent,
+                                    Colors.cyan,
+                                    Colors.lightGreen,
+                                    Colors.red,
+                                  ],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ).createShader(bounds),
+                                child: const Text(
+                                  'Labour App\n',
+                                  style: TextStyle(
+                                    fontSize: 45,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white, // required so gradient shows
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+
+
                         TextSpan(
                             text:
                             '\nEnter personal details to your employee account',
